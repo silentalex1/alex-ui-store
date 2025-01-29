@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Ui's</title>
+    <style>
+        body {
+            background-color: #0A192F;
+            color: #E0F7FA;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .search-container {
+            margin-top: 20px;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+        }
+        .search-bar {
+            width: 100%;
+            padding: 10px;
+            border-radius: 25px;
+            border: none;
+            font-size: 16px;
+            text-align: center;
+            background-color: #112D4E;
+            color: #E0F7FA;
+            outline: none;
+        }
+        .extensions-container {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
+        }
+        .extension-box {
+            background-color: #112D4E;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 250px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .extension-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .extension-description {
+            margin: 10px 0;
+            font-size: 14px;
+        }
+        .view-button {
+            background-color: #00BFA6;
+            color: #0A192F;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .view-button:hover {
+            background-color: #008573;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Search Chrome Extensions...">
+    </div>
+    <div class="extensions-container">
+        <div class="extension-box">
+            <div class="extension-title">Privacy Rights</div>
+            <div class="extension-description">A Chrome extension to help with your privacy.</div>
+            <button class="view-button" onclick="location.href='privacy-rights.html'">View</button>
+        </div>
+    </div>
+</body>
+</html>
