@@ -85,6 +85,25 @@
             color: #00BFA6;
         }
     </style>
+    <script>
+        function searchExtensions() {
+            let input = document.querySelector('.search-bar').value.toLowerCase();
+            let extensions = document.querySelectorAll('.extension-box');
+            
+            extensions.forEach(ext => {
+                let title = ext.querySelector('.extension-title').innerText.toLowerCase();
+                if (title.includes(input)) {
+                    ext.style.display = 'block';
+                } else {
+                    ext.style.display = 'none';
+                }
+            });
+        }
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.search-bar').addEventListener('input', searchExtensions);
+        });
+    </script>
 </head>
 <body>
     <h1>Alex UI's Place</h1>
@@ -96,6 +115,11 @@
             <div class="extension-title">Privacy Rights</div>
             <div class="extension-description">A Chrome extension to help with your privacy.</div>
             <button class="view-button" onclick="location.href='/privacyrights'">View</button>
+        </div>
+        <div class="extension-box">
+            <div class="extension-title">Youtube Waypoints</div>
+            <div class="extension-description">A Chrome extension that will save your YT time stamps.</div>
+            <button class="view-button" onclick="location.href='/ytwaypoints'">View</button>
         </div>
     </div>
     <div class="footer">
