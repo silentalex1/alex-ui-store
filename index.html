@@ -13,7 +13,7 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            height: 100vh;
+            min-height: 100vh;
             margin: 0;
         }
         .search-container {
@@ -35,24 +35,6 @@
             outline: none;
             box-shadow: 0 4px 10px rgba(0, 191, 166, 0.5);
         }
-        .tabs-container {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .tab {
-            background-color: #00BFA6;
-            padding: 12px 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: 0.3s;
-            color: #0A192F;
-            box-shadow: 0 4px 8px rgba(0, 191, 166, 0.5);
-        }
-        .tab:hover {
-            background-color: #008573;
-        }
         .extensions-container {
             margin-top: 30px;
             display: flex;
@@ -66,10 +48,11 @@
             width: 270px;
             box-shadow: 0 6px 12px rgba(0, 191, 166, 0.5);
             transform: perspective(500px) rotateX(5deg);
-            transition: transform 0.3s;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .extension-box:hover {
             transform: perspective(500px) rotateX(0deg);
+            box-shadow: 0 10px 20px rgba(0, 191, 166, 0.7);
         }
         .extension-title {
             font-size: 22px;
@@ -92,31 +75,31 @@
         }
         .view-button:hover {
             background-color: #008573;
+            box-shadow: 0 6px 12px rgba(0, 191, 166, 0.7);
         }
-        .hidden {
-            display: none;
+        .footer {
+            margin-top: 50px;
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+            color: #00BFA6;
         }
     </style>
-    <script>
-        function showCategory(category) {
-            document.getElementById('extensions-container').classList.add('hidden');
-        }
-    </script>
 </head>
 <body>
     <h1>Alex UI's Place</h1>
     <div class="search-container">
         <input type="text" class="search-bar" placeholder="Search Chrome Extensions...">
-        <div class="tabs-container">
-            <div class="tab" onclick="showCategory('roblox-ui')">My Roblox Script UI's</div>
-        </div>
     </div>
-    <div id="extensions-container" class="extensions-container">
+    <div class="extensions-container">
         <div class="extension-box">
             <div class="extension-title">Privacy Rights</div>
             <div class="extension-description">A Chrome extension to help with your privacy.</div>
             <button class="view-button" onclick="location.href='/privacyrights'">View</button>
         </div>
+    </div>
+    <div class="footer">
+        &copy; No Copyright 2025, Smart Script Studios.
     </div>
 </body>
 </html>
