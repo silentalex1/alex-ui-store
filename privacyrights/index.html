@@ -62,6 +62,8 @@
         }
         .features {
             margin-top: 25px;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
         }
         .feature {
             display: flex;
@@ -99,6 +101,15 @@
         .toggle.active:before {
             left: 26px;
         }
+        select {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 8px;
+            background: #222;
+            color: white;
+            border: 1px solid #00ff00;
+            font-size: 16px;
+        }
     </style>
 </head>
 <body>
@@ -108,7 +119,10 @@
             <div class="tab" onclick="switchTab('premium')">Premium Standard</div>
         </div>
         <button class="vpn-button" onclick="toggleExtension()">Start</button>
-        <div class="features">
+        <select>
+            <option>Select your school:</option>
+        </select>
+        <div class="features" id="features">
             <div class="feature">
                 <span>Freeze your screen for teacher</span>
                 <div class="toggle" onclick="toggleFeature(this)"></div>
@@ -123,19 +137,34 @@
         function switchTab(tab) {
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
             document.querySelector(`[onclick="switchTab('${tab}')"]`).classList.add('active');
+            
+            let features = document.getElementById('features');
+            features.style.opacity = '0';
+            setTimeout(() => {
+                if (tab === 'premium') {
+                    features.innerHTML = `
+                        <div class="feature"><span>Freeze your screen for teacher</span><div class="toggle" onclick="toggleFeature(this)"></div></div>
+                        <div class="feature"><span>Disable your screen</span><div class="toggle" onclick="toggleFeature(this)"></div></div>
+                        <div class="feature"><span>AI Power Unblocking</span><div class="toggle" onclick="toggleFeature(this)"></div></div>
+                        <div class="feature"><span>Stealth Mode</span><div class="toggle" onclick="toggleFeature(this)"></div></div>
+                        <div class="feature"><span>VPN</span><div class="toggle" onclick="toggleFeature(this)"></div></div>
+                        <div class="feature"><span>Cloud-based Unblocking</span><div class="toggle" onclick="toggleFeature(this)"></div></div>
+                    `;
+                } else {
+                    features.innerHTML = `
+                        <div class="feature"><span>Freeze your screen for teacher</span><div class="toggle" onclick="toggleFeature(this)"></div></div>
+                        <div class="feature"><span>Disable your screen</span><div class="toggle" onclick="toggleFeature(this)"></div></div>
+                    `;
+                }
+                features.style.opacity = '1';
+            }, 300);
         }
         function toggleFeature(element) {
             element.classList.toggle('active');
         }
         function toggleExtension() {
             let button = document.querySelector('.vpn-button');
-            let container = document.querySelector('.container');
             button.classList.toggle('active');
-            if (button.classList.contains('active')) {
-                container.style.boxShadow = "0 0 25px #00ff00";
-            } else {
-                container.style.boxShadow = "0 0 15px rgba(255, 0, 0, 0.5)";
-            }
         }
     </script>
 </body>
