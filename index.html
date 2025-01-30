@@ -50,16 +50,14 @@
         }
         .mini-tab-section {
             margin-top: 20px;
-            width: 100%;
-            max-width: 640px;
-            display: flex;
-            justify-content: center;
-            padding: 10px;
-            background-color: rgba(0, 0, 0, 0.3);
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
             border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+            display: flex;
+            gap: 10px;
+            justify-content: center;
         }
-        .mini-tab-button {
+        .tab-button {
             background-color: #00BFA6;
             color: #0A192F;
             padding: 12px 20px;
@@ -69,19 +67,23 @@
             font-weight: bold;
             transition: background-color 0.3s, box-shadow 0.3s;
             box-shadow: 0 4px 8px rgba(0, 191, 166, 0.5);
-            margin: 5px;
         }
-        .mini-tab-button:hover {
+        .tab-button:hover {
             background-color: #008573;
             box-shadow: 0 6px 12px rgba(0, 191, 166, 0.7);
         }
-        .extensions-container {
+        .extensions-container, .websites-container {
             margin-top: 40px;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 30px;
             width: 90%;
             max-width: 1000px;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
         }
         .extension-box {
             background-color: rgba(17, 45, 78, 0.9);
@@ -102,8 +104,16 @@
             text-align: center;
             font-size: 0.9rem;
             color: #00BFA6;
+            animation: fadeIn 1.5s ease-in-out;
         }
     </style>
+    <script>
+        function toggleSection(section) {
+            document.querySelector('.extensions-container').classList.add('hidden');
+            document.querySelector('.websites-container').classList.add('hidden');
+            document.querySelector(`.${section}`).classList.remove('hidden');
+        }
+    </script>
 </head>
 <body>
     <h1>Alex UI's Place</h1>
@@ -111,7 +121,7 @@
         <input type="text" class="search-bar" placeholder="Search Chrome Extensions...">
     </div>
     <div class="mini-tab-section">
-        <button class="mini-tab-button">Website Upcomings</button>
+        <button class="tab-button" onclick="toggleSection('websites-container')">Website Upcomings</button>
     </div>
     <div class="extensions-container">
         <div class="extension-box">
@@ -119,10 +129,12 @@
             <div class="extension-description">A Chrome extension to help with your privacy.</div>
             <button class="view-button" onclick="location.href='/privacyrights'">View</button>
         </div>
+    </div>
+    <div class="websites-container hidden">
         <div class="extension-box">
-            <div class="extension-title">Youtube Waypoints</div>
-            <div class="extension-description">A Chrome extension that will save your YT time stamps.</div>
-            <button class="view-button" onclick="location.href='/ytwaypoints'">View</button>
+            <div class="extension-title">Contact Me App</div>
+            <div class="extension-description">A entire bio contact me app.</div>
+            <button class="view-button" onclick="location.href='/contactapp'">View</button>
         </div>
     </div>
     <div class="footer">
