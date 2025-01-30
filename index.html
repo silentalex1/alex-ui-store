@@ -48,6 +48,33 @@
             background-color: rgba(17, 45, 78, 1);
             box-shadow: 0 6px 15px rgba(0, 191, 166, 0.7);
         }
+        .mini-tab-section {
+            margin-top: 20px;
+            width: 100%;
+            max-width: 640px;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+        }
+        .mini-tab-button {
+            background-color: #00BFA6;
+            color: #0A192F;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 191, 166, 0.5);
+            margin: 5px;
+        }
+        .mini-tab-button:hover {
+            background-color: #008573;
+            box-shadow: 0 6px 12px rgba(0, 191, 166, 0.7);
+        }
         .extensions-container {
             margin-top: 40px;
             display: grid;
@@ -63,37 +90,11 @@
             text-align: center;
             box-shadow: 0 6px 12px rgba(0, 191, 166, 0.5);
             transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-            position: relative;
-            overflow: hidden;
         }
         .extension-box:hover {
             transform: scale(1.05);
             box-shadow: 0 10px 20px rgba(0, 191, 166, 0.7);
             background-color: rgba(17, 45, 78, 1);
-        }
-        .extension-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        .extension-description {
-            margin: 12px 0;
-            font-size: 1rem;
-        }
-        .view-button {
-            background-color: #00BFA6;
-            color: #0A192F;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s, box-shadow 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 191, 166, 0.5);
-        }
-        .view-button:hover {
-            background-color: #008573;
-            box-shadow: 0 6px 12px rgba(0, 191, 166, 0.7);
         }
         .footer {
             margin-top: 50px;
@@ -101,43 +102,16 @@
             text-align: center;
             font-size: 0.9rem;
             color: #00BFA6;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-        @media (max-width: 600px) {
-            h1 {
-                font-size: 2rem;
-            }
-            .extension-box {
-                padding: 20px;
-            }
-            .extension-title {
-                font-size: 1.3rem;
-            }
-            .view-button {
-                padding: 10px 15px;
-            }
         }
     </style>
-    <script>
-        function searchExtensions() {
-            const input = document.querySelector('.search-bar').value.toLowerCase();
-            const extensions = document.querySelectorAll('.extension-box');
-            
-            extensions.forEach(ext => {
-                const title = ext.querySelector('.extension-title').innerText.toLowerCase();
-                ext.style.display = title.includes(input) ? 'block' : 'none';
-            });
-        }
-        
-        document.addEventListener('DOMContentLoaded', () => {
-            document.querySelector('.search-bar').addEventListener('input', searchExtensions);
-        });
-    </script>
 </head>
 <body>
     <h1>Alex UI's Place</h1>
     <div class="search-container">
         <input type="text" class="search-bar" placeholder="Search Chrome Extensions...">
+    </div>
+    <div class="mini-tab-section">
+        <button class="mini-tab-button">Website Upcomings</button>
     </div>
     <div class="extensions-container">
         <div class="extension-box">
